@@ -1,0 +1,87 @@
+---
+title: "The one that introduces {targets}"
+toc: true
+format: 
+    html:
+      theme: cerulean  
+      fontsize: 1em
+      embed-resources: true
+---
+
+## What's this all about?
+
+You are going to learn how to use the {targets} package.   
+You'll do this by running, and optionally, amending, some functions.   
+These functions have already been created for you as a starting point.   
+
+## What's in the project?
+
+`/img` -  folder contains 5 images of a character from the TV sitcom Friends.  
+You probably can't guess who it is. Resist the urge to look at them, or you risk removing what little comedic value exists.  
+
+`/R` - contains one file with a few `R` functions which 
+ - read in the images  
+ - adds captions  
+ - creates a  new combined image  
+ - saves it to disk 
+
+`vowels.csv` - a simple text file list the vowels in the English alphabet
+
+`_targets.R` - creates the links between the functions and the inputs and outputs
+
+`run.R` - uses targets to create a list of functions and inputs, in the correct order. It also creates a plot of these dependencies, and will create the final image. When run successfully, it will also create a folder named `_targets`, which will contain information to track the current status of the project
+
+
+## What do I need to do?
+
+- create a new folder somewhere else (maybe in your Documents) and copy the contents of this folder over to your new location. Also create a new project in RStudio with your new folder location.  
+
+- install the `targets` and `magick` packages if you don't already have them
+
+```{r}
+#| eval: false
+
+install.packages(c("targets","magick"), dependencies = TRUE)
+
+# you might need visNetwork too
+# install.packages(c("visNetwork"))
+
+```
+
+- resist the temptation to look at the images  
+- You can take a look at the R functions and try to figure out what the functions do  
+- look at the `_targets.R` file and see if you can understand what is happening.  
+- in particular, note how the names of the targets are passed as inputs to others
+- run through the code in `run.R` line by line  
+- laugh, or not, at the final result (a new image should be created in the main folder when the code runs successfully for the first time)
+
+- peek at the `_targets` folder and sub-folders. 
+- use `tar_read()` and `tar_load` with some of the other files in the `objects` subfolder. 
+
+
+## How does this help me?
+
+It introduces you to the concepts, without having to engage with any intensive data manipulation or plotting.   
+
+The key things to understand:
+
+- targets can be input files (raw data) as well as outputs.
+- targets encourages you to create functions, rather than large, procedural R scripts
+- targets act as inputs to your functions
+- targets keeps track of any changes to your code, inputs and outputs, and only re-runs the steps it needs to as a result of those changes.
+
+
+## Why Chandler?
+
+A few years ago, I was asked to do a speaker bio for an event (possibly the first NHS-R conference) and while everybody else did a proper, professional one, all I could think of was that I was "a poor man's Chandler Bing". 
+
+Quite a lot of people seemed to think this was a fair asssessment.
+
+
+## Need more information?
+
+I wrote a beginners guide for myself a while ago, which may also help:
+
+[On target - https://johnmackintosh.net/blog/2022-12-14-targets/](https://johnmackintosh.net/blog/2022-12-14-targets/)
+
+
