@@ -26,4 +26,4 @@ You probably can't guess who it is. Resist the urge to look at them, or you risk
 
 `run.R` - uses targets to create a list of functions and inputs, in the correct order. It also creates a plot of these dependencies, and will create the final image. When run successfully, it will also create a folder named `_targets`, which will contain information to track the current status of the project
 
-
+See the learning_targets.html page/ qmd for more info
