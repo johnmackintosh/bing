@@ -21,17 +21,16 @@ list(
   tar_target(
     name = vowel_source,
     command = "vowels.csv",
-    format = "file" # this designates that this target is a file, rather than data
+    format = "file" # this designates that this target is a regular file
   ),
   tar_target(
     name = vowels,
-    command = read_vowels(vowel_source) # read in the file designated by vowel_source, in
-    # this case, "vowels.csv"
+    command = read_vowels(vowel_source) # read in "vowels.csv"
   ),
 
   tar_target(
     name = captions,
-    command = create_captions(vowels)), # pass the vowels data to the create_captions function
+    command = create_captions(vowels)), # pass vowels data to create_captions()
 
   tar_target(
     name = pics,
