@@ -14,31 +14,37 @@ tar_option_set(
 
 
 # Run the R scripts in the R/ folder with your custom functions:
-tar_source()
+tar_source("R")
 
 
 list(
+
+  # specify vowels.csv as a regular file (as opposed to .RDS / data file)
   tar_target(
     name = vowel_source,
     command = "vowels.csv",
-    format = "file" # this designates that this target is a regular file
+    format = "file"
   ),
+
+  # read in "vowels.csv" using read_vowels()
   tar_target(
     name = vowels,
-    command = read_vowels(vowel_source) # read in "vowels.csv"
+    command = read_vowels(vowel_source)
   ),
 
+  # pass vowels data to create_captions()
   tar_target(
     name = captions,
-    command = create_captions(vowels)), # pass vowels data to create_captions()
+    command = create_captions(vowels)),
 
+  # read in the images with the magick package
   tar_target(
     name = pics,
     command = read_pics(pic_path = "./img/",
                         pic_pattern = "*.jpg")
-  ), # read in the images with the magick package
+  ),
 
-
+  # create the final image using the images and pics above
 tar_target(
   name = final_image,
   command = caption_images(img = pics,
@@ -46,5 +52,5 @@ tar_target(
                            size = 35, # try changing this value
                            text_colour = "white"), # try changing this value
   format = "file")
-# create the final image using the images and pics above
 )
+# end of list
