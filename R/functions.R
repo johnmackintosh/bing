@@ -1,20 +1,22 @@
+
+# get the image file names and paths, return them as a vector
 read_pics <- function(pic_path = "./img/",
                       pic_pattern = "*.jpg") {
-# get the filenames
+
 pics <- dir(path = pic_path,
             pattern =  pic_pattern,
             full.names = TRUE)
 
 # reorder putting "i.jpg" first
-pics <- c(pics[3], pics[c(1:2,4:5)])
+pics <- c(pics[3], pics[c(1:2, 4:5)])
 return(pics)
 
 }
 
 
+# read the contents of the "vowels" text file, return as vector
 
 read_vowels <- function(x = "vowels.csv") {
-  # read the text file with the vowels we want to paste in
   vowels <- scan(x,
                  what = character(),
                  sep = ",",
@@ -23,9 +25,8 @@ read_vowels <- function(x = "vowels.csv") {
 }
 
 
-
+# create a (possibly) new name for the main character
 create_captions <- function(x) {
-  # create a (possibly) new name for the main character
   res <- paste0("Chandler B", x, "ng")
   return(res)
 }
