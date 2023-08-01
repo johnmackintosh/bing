@@ -24,9 +24,9 @@ read_vowels <- function(x = "vowels.csv") {
 
 
 
-create_captions <- function(x){
-  # create a (possibly) new name for Chandler
-  res <- paste0("Chandler B",x, "ng")
+create_captions <- function(x) {
+  # create a (possibly) new name for the main character
+  res <- paste0("Chandler B", x, "ng")
   return(res)
 }
 
@@ -34,7 +34,7 @@ create_captions <- function(x){
 render <- function(img,
                    x,
                    size = 10,
-                   text_colour){
+                   text_colour) {
 
   img <- magick::image_annotate(img,
                                 x,
@@ -64,4 +64,3 @@ caption_images <- function(img,
   magick::image_write(out, path = filename)
 
 }
-
